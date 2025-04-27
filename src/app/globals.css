@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+@import 'tailwindcss' important;
 
 :root {
     --background: #181818;
@@ -7,24 +7,21 @@
 
 @theme {
     --color-gray-500: oklch(0.58 0 0);
+    --font-mono: initial;
+    --color-dark-600: #8b8b8b;
+    --color-dark-500: #7b7b7b;
 }
 
 @theme inline {
     --color-background: var(--background);
     --color-foreground: var(--foreground);
     --font-sans: var(--font-diatype);
-    --font-mono: initial;
-}
-
-@media (prefers-color-scheme: dark) {
-    :root {
-    }
 }
 
 body {
     background: var(--background);
     color: var(--foreground);
-    font-family: var(--font-sans), Helvetica, sans-serif;
+    font-family: var(--font-diatype), Helvetica, sans-serif;
 }
 
 @utility container {
@@ -41,5 +38,23 @@ body {
     @media (width >= theme(--breakpoint-lg)) {
         padding-inline: 4rem;
         max-width: calc(1280px + 2rem * 2);
+    }
+}
+
+a {
+    transition: 350ms ease;
+    transition-property:
+        color,
+        text-decoration-color,
+        -webkit-text-decoration-color;
+    text-decoration: underline;
+    -webkit-text-decoration-color: var(--color-gray-600);
+    text-decoration-color: var(--color-gray-600);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+
+    &:hover {
+        -webkit-text-decoration-color: var(--color-gray-400);
+        text-decoration-color: var(--color-gray-400);
     }
 }
