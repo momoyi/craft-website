@@ -7,6 +7,8 @@
 
 @theme {
     --color-gray-500: oklch(0.58 0 0);
+    --color-gray-400: oklch(0.72 0 0);
+    --color-gray-300: oklch(0.87 0 258.34 / 1);
     --font-mono: initial;
     --color-dark-600: #8b8b8b;
     --color-dark-500: #7b7b7b;
@@ -40,6 +42,31 @@ body {
         max-width: calc(1280px + 2rem * 2);
     }
 }
+@layer base {
+    button:not(:disabled),
+    [role='button']:not(:disabled) {
+        cursor: pointer;
+    }
+}
+
+@layer components {
+    .btn {
+        background-color: var(--color-white);
+        color: var(--background);
+        border-radius: var(--radius-sm);
+        padding: 6px 14px;
+        font-size: 14px;
+        font-weight: var(--font-weight-medium);
+        transition: 300ms ease;
+        transition-property: color, background-color;
+
+        &:hover {
+            background-color: var(--color-gray-200);
+        }
+    }
+}
+
+/* General global stylings */
 
 a {
     transition: 350ms ease;

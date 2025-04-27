@@ -1,9 +1,6 @@
 import Image from 'next/image';
+import HomeView from './views/HomeView';
 
 export default function Home() {
-    return (
-        <div className='container border border-red-600'>
-            <h1 className='text-5xl'>Craft</h1>
-        </div>
-    );
+    return <HomeView />;
 }
