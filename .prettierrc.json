@@ -1,0 +1,12 @@
+{
+    "trailingComma": "es5",
+    "tabWidth": 4,
+    "printWidth": 80,
+    "tailwindStylesheet": "./resources/css/app.css",
+    "plugins": ["prettier-plugin-tailwindcss"],
+    "tailwindFunctions": ["clsx", "tw"],
+    "semi": true,
+    "singleQuote": true,
+    "jsxSingleQuote": true,
+    "tailwindPreserveWhitespace": true
+}
