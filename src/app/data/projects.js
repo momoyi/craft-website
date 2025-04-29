@@ -1,8 +1,10 @@
 export const projects = [
   {
-    title: 'AI spotlight concept.',
-    description:
+    title: 'AI spotlight concept',
+    shortdDescription:
       'Animated interactive AI chat input that scales size based on content. Original interaction was designed by {designer}',
+    description: `Here's an animated interactive AI chat input that scales size based on content. Type anything into the input
+       and submit to see interaction. Original interaction was designed by the amazing {designer}`,
     date: 'May 1st, 2025',
     videoSrc:
       'https://srthf9hgxhyzoa7c.public.blob.vercel-storage.com/ssstwitter.com_1745777758504-oNwPyqnQwA9XBiec7yhIh1lKdA91T6.mp4',

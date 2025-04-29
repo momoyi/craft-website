@@ -72,6 +72,17 @@ body {
       background-color: var(--color-gray-200);
     }
   }
+
+  .sandbox {
+    background-color: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: var(--radius-lg);
+    min-height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+  }
 }
 
 /* General global stylings */

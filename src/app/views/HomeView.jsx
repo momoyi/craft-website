@@ -2,38 +2,13 @@ import Link from 'next/link';
 import { projects } from '@/app/data/projects';
 import RootHeader from '../layouts/root/components/RootHeader';
 import RootFooter from '../layouts/root/components/RootFooter';
-
-function renderDescription(description, links = {}) {
-  const parts = description.split(/({.*?})/g); // Split by {...}
-
-  return parts.map((part, index) => {
-    const match = part.match(/{(.*?)}/);
-    if (match) {
-      const key = match[1];
-      const link = links[key];
-      if (link) {
-        return (
-          <a
-            key={index}
-            href={link.href}
-            target='_blank'
-            rel='noopener noreferrer'
-            className=''
-          >
-            {link.text}
-          </a>
-        );
-      }
-    }
-    return <span key={index}>{part}</span>;
-  });
-}
+import { renderDescription } from '@/app/utils/renderDescription';
 
 function HomeView() {
   return (
     <>
       <RootHeader></RootHeader>
-      <main className='pt-20 tracking-tight container'>
+      <main className='min-h-[calc(100svh-56px-70px)] pt-20 tracking-tight container'>
         <section className='w-full flex flex-col gap-5'>
           {projects.map((project, index) => (
             <div key={index} className='grid grid-cols-2 gap-16'>
@@ -41,7 +16,10 @@ function HomeView() {
                 <div>
                   <h3 className='font-medium'>{project.title}</h3>
                   <p className='text-base pt-1 text-gray-300'>
-                    {renderDescription(project.description, project.links)}
+                    {renderDescription(
+                      project.shortdDescription,
+                      project.links
+                    )}
                   </p>
                 </div>
 

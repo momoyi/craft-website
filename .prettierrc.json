@@ -1,12 +1,12 @@
 {
-    "trailingComma": "es5",
-    "tabWidth": 2,
-    "printWidth": 80,
-    "tailwindStylesheet": "./resources/css/app.css",
-    "plugins": ["prettier-plugin-tailwindcss", "prettier-plugin-classnames"],
-    "tailwindFunctions": ["clsx", "tw"],
-    "semi": true,
-    "singleQuote": true,
-    "jsxSingleQuote": true,
-    "tailwindPreserveWhitespace": true
+  "trailingComma": "es5",
+  "tabWidth": 2,
+  "printWidth": 80,
+  "tailwindStylesheet": "./resources/css/app.css",
+  "plugins": ["prettier-plugin-tailwindcss"],
+  "tailwindFunctions": ["clsx", "tw"],
+  "semi": true,
+  "singleQuote": true,
+  "jsxSingleQuote": true,
+  "tailwindPreserveWhitespace": true
 }
