@@ -11,6 +11,8 @@ export default function SpotlightInput() {
   const [submitted, setSubmitted] = useState(false);
   const [currentAction, setCurrentAction] = useState('looking');
   const [actionContent, setactionContent] = useState('');
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const [isPressed, setIsPressed] = useState(false);
 
   useEffect(() => {
     switch (currentAction) {
@@ -88,9 +90,13 @@ export default function SpotlightInput() {
         </div>
 
         <div className='relative flex items-center justify-between'>
-          <div className='absolute right-3 flex justify-end gap-2'>
+          <div className='z-2 absolute right-3 flex justify-end gap-2'>
             <button
               disabled={!inputVal.length > 0}
+              onClick={() => setSubmitted(true)}
+              onMouseDown={() => setIsPressed(true)}
+              onMouseUp={() => setIsPressed(false)}
+              onMouseLeave={() => setIsPressed(false)}
               className='ease disabled:pointer-events-none: text-gray-400 duration-300 hover:text-gray-700'
             >
               <VoiceIcon color={'currentColor'} />
@@ -98,6 +104,9 @@ export default function SpotlightInput() {
             {inputVal.length > 0 && (
               <button
                 disabled={!inputVal.length > 0}
+                onMouseDown={() => setIsPressed(true)}
+                onMouseUp={() => setIsPressed(false)}
+                onMouseLeave={() => setIsPressed(false)}
                 onClick={() => setSubmitted(true)}
                 className='ease disabled:pointer-events-none: text-gray-400 duration-300 hover:text-gray-700'
               >
@@ -110,11 +119,15 @@ export default function SpotlightInput() {
             placeholder='Search or ask'
             value={inputVal}
             onChange={(e) => setInputVal(e.target.value)}
+            style={{
+              transition: 'transform 0.15s linear',
+              transform: isPressed && !submitted ? 'scale(0.95)' : 'scale(1)',
+            }}
             onKeyDown={(e) => {
               if (e.key === 'Enter') {
                 setSubmitted(true);
               } else if (e.key === 'Escape') {
-                if (submitted) {
+                if (submitted && dialogOpen) {
                   setSubmitted(false);
                 }
               }
