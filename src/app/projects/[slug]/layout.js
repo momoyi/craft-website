@@ -14,7 +14,7 @@ export default async function ProjectLayout(props) {
         style={{ '--top-space': '120px' }}
         className='pt-(--top-space) container grid min-h-[calc(100svh-56px)] grid-cols-12 gap-6 pb-20 tracking-tight'
       >
-        <div className='col-span-4'>
+        <div className='col-span-3'>
           <div className='top-(--top-space) sticky flex flex-col gap-8'>
             <nav>
               <Link
@@ -48,7 +48,7 @@ export default async function ProjectLayout(props) {
             </div>
           </div>
         </div>
-        <div className='col-span-6'>
+        <div className='col-span-7'>
           <div>{children}</div>
         </div>
       </section>

@@ -6,7 +6,7 @@ export default function VoiceIcon({ strokeWidth, color }) {
       height='24'
       viewBox='0 0 24 24'
       fill='none'
-      class='injected-svg'
+      className='injected-svg'
       role='img'
       color={color ? color : '#000000'}
     >
