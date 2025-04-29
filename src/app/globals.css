@@ -82,6 +82,7 @@ body {
     justify-content: center;
     align-items: center;
     padding: 1rem;
+    overflow: hidden;
   }
 }
 
@@ -102,5 +103,53 @@ a:not(.btn) {
   &:hover {
     -webkit-text-decoration-color: var(--color-gray-400);
     text-decoration-color: var(--color-gray-400);
+  }
+}
+
+:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.dotSpinner {
+  animation:
+    spin 1.25s cubic-bezier(0.86, 0, 0.07, 1) infinite forwards 250ms,
+    pulse-scale 2.5s ease infinite forwards;
+  transform-origin: center center;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  80% {
+    transform: rotate(180deg);
+  }
+
+  100% {
+    transform: rotate(180deg);
+  }
+}
+
+@keyframes pulse-scale {
+  0% {
+    scale: 1;
+  }
+
+  10% {
+    scale: 0.8;
+  }
+
+  50% {
+    scale: 0.8;
+  }
+
+  60% {
+    scale: 1;
+  }
+
+  100% {
+    scale: 1;
   }
 }
