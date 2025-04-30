@@ -1,6 +1,12 @@
 import localFont from 'next/font/local';
 import './globals.css';
 import RootLayout from './layouts/root/RootLayout';
+import { Inter } from 'next/font/google';
+
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
+});
 
 const diatype = localFont({
   src: [
@@ -56,8 +62,8 @@ export const metadata = {
 
 export default function Layout({ children }) {
   return (
-    <html lang='en'>
-      <body className={`${diatype.variable} antialiased`}>
+    <html lang='en' className={`${diatype.variable} ${inter.variable}`}>
+      <body className='antialiased'>
         <RootLayout>{children}</RootLayout>
       </body>
     </html>

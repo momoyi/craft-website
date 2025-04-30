@@ -20,6 +20,7 @@
   --font-mono: initial;
   --color-dark-600: #8b8b8b;
   --color-dark-500: #7b7b7b;
+  --font-inter: 'Inter', sans-serif;
 }
 
 @theme inline {
@@ -121,6 +122,18 @@ a:not(.btn) {
   transform-origin: center center;
 }
 
+.animated-gradient {
+  background: linear-gradient(
+    to right,
+    #e45b65 0%,
+    #ff9500 25%,
+    #6944a1 50%,
+    #e45b65 75%,
+    #ff9500 100%
+  );
+  animation: gradient-shift 9s linear infinite;
+}
+
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -154,5 +167,23 @@ a:not(.btn) {
 
   100% {
     scale: 1;
+  }
+}
+
+@keyframes gradient-shift {
+  0% {
+    transform: translateX(0);
+  }
+
+  33.33% {
+    transform: translateX(25%);
+  }
+
+  66.66% {
+    transform: translateX(50%);
+  }
+
+  100% {
+    transform: translateX(75%);
   }
 }

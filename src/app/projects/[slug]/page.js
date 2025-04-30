@@ -1,6 +1,6 @@
 import { projects } from '@/app/data/projects';
 import { renderDescription } from '@/app/utils/renderDescription';
-import SpotlightInput from '../sandboxes/SpotlightInput';
+import SpotlightInput from '../sandboxes/spotlightInput/SpotlightInput';
 
 export default async function ProjectDetails(props) {
   const params = await props.params;
@@ -32,12 +32,12 @@ export default async function ProjectDetails(props) {
           <h1 className='text-base'>{project.title}</h1>
           <p className='text-gray-400'>{project.date}</p>
         </div>
-        <p className='pt-10 text-gray-400'>
+        <p className=' pt-10 text-gray-400'>
           {renderDescription(project.description, project.links)}
         </p>
       </div>
 
-      <div className='sandbox mt-10 h-[500px]'>
+      <div className='sandbox mt-10 h-[900px]'>
         <SpotlightInput />
       </div>
     </div>
