@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useMemo } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import useMeasure from 'react-use-measure';
 import ArrowUpIcon from '@/app/icons/ArrowUp';
@@ -7,17 +7,43 @@ import VoiceIcon from '@/app/icons/Voice';
 import DotSpinner from '@/app/icons/DotSpinner';
 import SpotlightDialog from './SpotlightDialog';
 import clsx from 'clsx';
+import SpotlightActions from './SpotlightActions';
 
 export default function SpotlightInput() {
   const [inputVal, setInputVal] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [currentAction, setCurrentAction] = useState('looking');
   const [actionContent, setactionContent] = useState('');
-  const [dialogOpen, setDialogOpen] = useState(false);
+  const [activeFile, setActiveFile] = useState(false);
+  const [activeView, setActiveView] = useState('input');
   const [isPressed, setIsPressed] = useState(false);
+  const [transitionDelay, setTransitionDelay] = useState(0.3);
   const [ref, bounds] = useMeasure();
 
-  const dialogDelay = 0.4;
+  const content = useMemo(() => {
+    switch (activeView) {
+      case 'input':
+        break;
+      case 'dialog':
+        return (
+          <SpotlightDialog
+            setActiveView={setActiveView}
+            transitionDelay={transitionDelay}
+            reset={resetInput}
+            setActiveFile={setActiveFile}
+          />
+        );
+      case 'actions':
+        return (
+          <SpotlightActions
+            transitionDelay={transitionDelay}
+            reset={resetInput}
+            activeFile={activeFile}
+            setActiveView={setActiveView}
+          />
+        );
+    }
+  }, [activeView]);
 
   const processChars = 'Thinking...'.split('');
 
@@ -25,7 +51,7 @@ export default function SpotlightInput() {
     setInputVal('');
     setSubmitted(false);
     setCurrentAction('looking');
-    setDialogOpen(false);
+    setActiveView('input');
   }
 
   useEffect(() => {
@@ -57,7 +83,7 @@ export default function SpotlightInput() {
           setCurrentAction('recommending');
 
           timer3 = setTimeout(() => {
-            setDialogOpen(true);
+            setActiveView('dialog');
             setCurrentAction('looking');
           }, 1500);
         }, 1500);
@@ -73,20 +99,17 @@ export default function SpotlightInput() {
 
   return (
     <div className='block'>
-      {/* <button
-        className='mb-5'
-        onClick={() => {
-          setDialogOpen(!dialogOpen);
+      <div
+        className='font-inter relative flex flex-col gap-1 rounded-xl p-2 pb-4'
+        style={{
+          '--external-padding-vertical': '6px',
+          '--external-padding-horizontal': '10px',
         }}
       >
-        Toggle
-      </button> */}
-
-      <div className='font-inter relative flex flex-col gap-1 rounded-xl p-2'>
         <AnimatePresence>
-          {submitted && !dialogOpen && (
+          {submitted && activeView === 'input' && (
             <motion.div
-              key={dialogOpen}
+              key={activeView}
               initial={{ opacity: 0, filter: 'blur(10px)' }}
               animate={{ opacity: 1, filter: 'blur(0px)' }}
               exit={{ opacity: 0, filter: 'blur(10px)' }}
@@ -98,14 +121,13 @@ export default function SpotlightInput() {
           )}
         </AnimatePresence>
         <div className='relative'>
-          {submitted && !dialogOpen && (
+          {submitted && activeView === 'input' && (
             <AnimatePresence>
               <motion.div
-                key={dialogOpen}
+                key={activeView}
                 initial={{ opacity: 0, filter: 'blur(10px)' }}
                 animate={{ opacity: 1, filter: 'blur(0px)' }}
                 exit={{ opacity: 0, filter: 'blur(10px)' }}
-                dela
                 transition={{
                   type: 'spring',
                   visualDuration: 0.5,
@@ -116,10 +138,10 @@ export default function SpotlightInput() {
               >
                 <div className='py-0.25 flex items-center gap-3'>
                   <DotSpinner />
-                  {submitted && !dialogOpen && (
+                  {submitted && activeView === 'input' && (
                     <div className='flex'>
                       {processChars.map((char, index) => (
-                        <div className='flex text-sm'>
+                        <div className='flex text-sm' key={index}>
                           <motion.span
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
@@ -184,64 +206,97 @@ export default function SpotlightInput() {
             duration: 0.75,
             type: 'spring',
             bounce: 0,
-            delay: dialogDelay,
           }}
           className='flex origin-bottom flex-col justify-end overflow-hidden rounded-xl bg-white'
         >
           <div className='inner w-fit' ref={ref}>
-            <SpotlightDialog
-              open={dialogOpen}
-              transitionDelay={dialogDelay}
-              reset={resetInput}
-            />
+            <AnimatePresence mode='wait'>
+              <motion.div
+                key={activeView}
+                exit={{ opacity: 0, transition: { duration: 0.2, delay: 0 } }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.3, delay: 0 }}
+              >
+                {content}
+              </motion.div>
+            </AnimatePresence>
 
-            <div className='relative flex w-fit items-center justify-between rounded-xl bg-white'>
-              <div className='z-2 absolute right-3 flex justify-end gap-2'>
-                <button
-                  disabled={!inputVal.length > 0}
-                  onClick={() => setSubmitted(true)}
-                  onMouseDown={() => setIsPressed(true)}
-                  onMouseUp={() => setIsPressed(false)}
-                  onMouseLeave={() => setIsPressed(false)}
-                  className='ease disabled:pointer-events-none: text-gray-400 duration-300 hover:text-gray-700'
+            <AnimatePresence initial={false}>
+              {activeView !== 'actions' && (
+                <motion.div
+                  initial={{ opacity: 0, y: '120%' }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{
+                    opacity: 0,
+                    y: '120%',
+                    transition: { duration: 0.3, delay: 0 },
+                  }}
+                  transition={{ duration: 0.3, delay: 0.3 }}
+                  className='relative flex w-fit items-center justify-between overflow-hidden rounded-xl bg-white'
                 >
-                  <VoiceIcon color={'currentColor'} />
-                </button>
-                {inputVal.length > 0 && (
-                  <button
-                    disabled={!inputVal.length > 0}
-                    onMouseDown={() => setIsPressed(true)}
-                    onMouseUp={() => setIsPressed(false)}
-                    onMouseLeave={() => setIsPressed(false)}
-                    onClick={() => setSubmitted(true)}
-                    className='ease disabled:pointer-events-none: text-gray-400 duration-300 hover:text-gray-700'
-                  >
-                    <ArrowUpIcon color={'currentColor'} />
-                  </button>
-                )}
-              </div>
-              <motion.input
-                className='flexitems-center w-[480px] justify-between rounded-[10px] border border-transparent bg-white px-4 py-3 text-sm font-medium leading-6 text-gray-800 opacity-100 outline-none placeholder:text-gray-400 focus:border focus:border-gray-300'
-                placeholder='Search or ask'
-                value={inputVal}
-                onChange={(e) => setInputVal(e.target.value)}
-                disabled={dialogOpen}
-                style={{
-                  transition: 'transform 0.15s linear',
-                  transform:
-                    isPressed && !submitted ? 'scale(0.95)' : 'scale(1)',
-                }}
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter') {
-                    setSubmitted(true);
-                  } else if (e.key === 'Escape') {
-                    if (submitted && dialogOpen) {
-                      setSubmitted(false);
-                    }
-                  }
-                }}
-              ></motion.input>
-            </div>
+                  <div className='z-2 absolute right-3 flex justify-end gap-2 overflow-hidden'>
+                    <div
+                      style={{
+                        transform:
+                          inputVal.length > 0
+                            ? 'translateX(0px)'
+                            : 'translateX(32px)',
+                      }}
+                      className='duration-250 flex justify-end gap-2 transition-transform'
+                    >
+                      <button
+                        disabled={
+                          !inputVal.length > 0 || activeView !== 'input'
+                        }
+                        onClick={() => setSubmitted(true)}
+                        onMouseDown={() => setIsPressed(true)}
+                        onMouseUp={() => setIsPressed(false)}
+                        onMouseLeave={() => setIsPressed(false)}
+                        className='ease disabled:pointer-events-none: text-gray-400 duration-300 hover:text-gray-700'
+                      >
+                        <div className='h-6 w-6'>
+                          <VoiceIcon color={'currentColor'} />
+                        </div>
+                      </button>
+
+                      <button
+                        disabled={
+                          !inputVal.length > 0 || activeView !== 'input'
+                        }
+                        onMouseDown={() => setIsPressed(true)}
+                        onMouseUp={() => setIsPressed(false)}
+                        onMouseLeave={() => setIsPressed(false)}
+                        onClick={() => setSubmitted(true)}
+                        className='ease disabled:pointer-events-none: text-gray-400 duration-300 hover:text-gray-700'
+                      >
+                        <ArrowUpIcon color={'currentColor'} />
+                      </button>
+                    </div>
+                  </div>
+                  <motion.input
+                    className='flexitems-center w-[480px] justify-between rounded-[10px] border border-transparent bg-white px-4 py-3 text-sm font-medium leading-6 text-gray-800 opacity-100 outline-none placeholder:text-gray-400 focus:border focus:border-gray-300'
+                    placeholder='Search or ask'
+                    value={inputVal}
+                    onChange={(e) => setInputVal(e.target.value)}
+                    disabled={activeView !== 'input'}
+                    style={{
+                      transition: 'transform 0.15s linear',
+                      transform:
+                        isPressed && !submitted ? 'scale(0.95)' : 'scale(1)',
+                    }}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter') {
+                        setSubmitted(true);
+                      } else if (e.key === 'Escape') {
+                        if (submitted && activeView !== 'input') {
+                          setSubmitted(false);
+                        }
+                      }
+                    }}
+                  ></motion.input>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
         </motion.div>
       </div>

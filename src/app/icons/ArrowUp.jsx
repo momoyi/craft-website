@@ -9,14 +9,14 @@ function ArrowUpIcon({ strokeWidth, color }) {
     >
       <path
         d='M12 7V17'
-        stroke={color ? color : 'black'}
+        stroke={color ? color : 'currentColor'}
         strokeWidth={strokeWidth ? strokeWidth : '1.5'}
         strokeLinecap='round'
         strokeLinejoin='round'
       />
       <path
         d='M17 12L12 7L7 12'
-        stroke={color ? color : 'black'}
+        stroke={color ? color : 'currentColor'}
         strokeWidth={strokeWidth ? strokeWidth : '1.5'}
         strokeLinecap='round'
         strokeLinejoin='round'

@@ -1,4 +1,4 @@
-function ArrowRightIcon({ strokeWidth, color }) {
+function CloseIcon({ strokeWidth, color }) {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
@@ -11,14 +11,7 @@ function ArrowRightIcon({ strokeWidth, color }) {
       color={color ? color : 'currentColor'}
     >
       <path
-        d='M15.0001 17L20 12L15 7'
-        stroke={color ? color : 'currentColor'}
-        strokeWidth={strokeWidth ? strokeWidth : '1.5'}
-        strokeLinecap='round'
-        strokeLinejoin='round'
-      ></path>
-      <path
-        d='M4 12H20'
+        d='M19.0005 4.99988L5.00049 18.9999M5.00049 4.99988L19.0005 18.9999'
         stroke={color ? color : 'currentColor'}
         strokeWidth={strokeWidth ? strokeWidth : '1.5'}
         strokeLinecap='round'
@@ -28,4 +21,4 @@ function ArrowRightIcon({ strokeWidth, color }) {
   );
 }
 
-export default ArrowRightIcon;
+export default CloseIcon;

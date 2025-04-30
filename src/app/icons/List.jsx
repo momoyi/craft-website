@@ -1,4 +1,4 @@
-export default function VoiceIcon({ strokeWidth, color }) {
+function ListIcon({ strokeWidth, color }) {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
@@ -11,54 +11,43 @@ export default function VoiceIcon({ strokeWidth, color }) {
       color={color ? color : 'currentColor'}
     >
       <path
-        d='M9 3V21'
+        d='M9 5L21 5'
         stroke={color ? color : 'currentColor'}
         strokeWidth={strokeWidth ? strokeWidth : '1.5'}
         strokeLinecap='round'
-        strokeLinejoin='round'
       ></path>
       <path
-        d='M6 7V17'
+        d='M3 5L5 5'
         stroke={color ? color : 'currentColor'}
         strokeWidth={strokeWidth ? strokeWidth : '1.5'}
         strokeLinecap='round'
-        strokeLinejoin='round'
       ></path>
       <path
-        d='M12 6V18'
+        d='M9 12L21 12'
         stroke={color ? color : 'currentColor'}
         strokeWidth={strokeWidth ? strokeWidth : '1.5'}
         strokeLinecap='round'
-        strokeLinejoin='round'
       ></path>
       <path
-        d='M15 9L15 15'
+        d='M3 12L5 12'
         stroke={color ? color : 'currentColor'}
         strokeWidth={strokeWidth ? strokeWidth : '1.5'}
         strokeLinecap='round'
-        strokeLinejoin='round'
       ></path>
       <path
-        d='M18 7L18 17'
+        d='M9 19L21 19'
         stroke={color ? color : 'currentColor'}
         strokeWidth={strokeWidth ? strokeWidth : '1.5'}
         strokeLinecap='round'
-        strokeLinejoin='round'
       ></path>
       <path
-        d='M21 11L21 13'
+        d='M3 19L5 19'
         stroke={color ? color : 'currentColor'}
         strokeWidth={strokeWidth ? strokeWidth : '1.5'}
         strokeLinecap='round'
-        strokeLinejoin='round'
-      ></path>
-      <path
-        d='M3 11L3 13'
-        stroke={color ? color : 'currentColor'}
-        strokeWidth={strokeWidth ? strokeWidth : '1.5'}
-        strokeLinecap='round'
-        strokeLinejoin='round'
       ></path>
     </svg>
   );
 }
+
+export default ListIcon;

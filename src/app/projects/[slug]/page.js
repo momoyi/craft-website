@@ -37,7 +37,7 @@ export default async function ProjectDetails(props) {
         </p>
       </div>
 
-      <div className='sandbox mt-10 h-[900px]'>
+      <div className='sandbox mt-10 h-[860px]'>
         <SpotlightInput />
       </div>
     </div>
