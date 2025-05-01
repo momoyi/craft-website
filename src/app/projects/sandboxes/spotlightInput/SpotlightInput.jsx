@@ -210,7 +210,7 @@ export default function SpotlightInput() {
           className='flex origin-bottom flex-col justify-end overflow-hidden rounded-xl bg-white'
         >
           <div className='inner w-fit' ref={ref}>
-            <AnimatePresence mode='sync'>
+            <AnimatePresence mode='wait'>
               <motion.div
                 key={activeView}
                 exit={{ opacity: 0, transition: { duration: 0.2, delay: 0 } }}
