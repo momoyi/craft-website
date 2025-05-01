@@ -19,7 +19,7 @@ function SpotlightActions({
     <MotionConfig
       transition={{ duration: 0.3, ease: [0.455, 0.03, 0.515, 0.955] }}
     >
-      <motion.div layout className='flex w-[480px] flex-col gap-4 px-4 py-4'>
+      <motion.div layout className='flex w-[360px] flex-col gap-4 px-4 py-4'>
         <motion.h3
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

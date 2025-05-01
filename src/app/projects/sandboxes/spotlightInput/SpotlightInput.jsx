@@ -210,7 +210,7 @@ export default function SpotlightInput() {
           className='flex origin-bottom flex-col justify-end overflow-hidden rounded-xl bg-white'
         >
           <div className='inner w-fit' ref={ref}>
-            <AnimatePresence mode='wait'>
+            <AnimatePresence mode='sync'>
               <motion.div
                 key={activeView}
                 exit={{ opacity: 0, transition: { duration: 0.2, delay: 0 } }}
@@ -274,7 +274,7 @@ export default function SpotlightInput() {
                     </div>
                   </div>
                   <motion.input
-                    className='flexitems-center w-[480px] justify-between rounded-[10px] border border-transparent bg-white px-4 py-3 text-sm font-medium leading-6 text-gray-800 opacity-100 outline-none placeholder:text-gray-400 focus:border focus:border-gray-300'
+                    className='flexitems-center w-[360px] justify-between rounded-[10px] border border-transparent bg-white px-4 py-3 text-sm font-medium leading-6 text-gray-800 opacity-100 outline-none placeholder:text-gray-400 focus:border focus:border-gray-300'
                     placeholder='Search or ask'
                     value={inputVal}
                     onChange={(e) => setInputVal(e.target.value)}

@@ -173,7 +173,7 @@ export default function SpotlightDialog({
                     {item.icon}
                   </div>
 
-                  <span className='z-1 relative w-full max-w-[380px] truncate text-[14px] font-semibold'>
+                  <span className='z-1 relative w-full max-w-[300px] truncate text-[14px] font-semibold'>
                     {item.text}
                   </span>
                 </div>
