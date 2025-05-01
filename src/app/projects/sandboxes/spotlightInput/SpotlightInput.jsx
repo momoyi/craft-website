@@ -163,7 +163,7 @@ export default function SpotlightInput() {
                   )}
                 </div>
                 <div className='relative flex h-[1.5em] items-center justify-end overflow-y-clip whitespace-nowrap text-right text-sm text-[rgba(255,255,255,0.6)]'>
-                  <AnimatePresence mode='sync'>
+                  <AnimatePresence mode='wait'>
                     <motion.span
                       key={currentAction}
                       className='absolute right-0'
