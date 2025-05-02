@@ -7,6 +7,7 @@ export default async function ProjectLayout(props) {
   const { children } = props;
   const params = await props.params;
   const slug = params.slug;
+  const tempProjects = projects.filter((project) => project.route !== slug);
 
   return (
     <>
@@ -29,21 +30,23 @@ export default async function ProjectLayout(props) {
             <div className=''>
               <span className='text-gray-500'>Other "projects"</span>
               <nav className='flex flex-col gap-1 pt-2'>
-                {projects.map((project, index) => {
-                  return project.route === slug ? (
-                    <p key={index} className='text-gray-300'>
-                      No other projects found
-                    </p>
-                  ) : (
-                    <Link
-                      href={'/projects/' + project.route}
-                      key={index}
-                      className='text-gray-300 no-underline hover:text-white'
-                    >
-                      {project.title}
-                    </Link>
-                  );
-                })}
+                {tempProjects.length > 0 ? (
+                  tempProjects.map((project, index) => {
+                    return (
+                      <Link
+                        href={'/projects/' + project.route}
+                        key={index}
+                        className='text-gray-300 no-underline hover:text-white'
+                      >
+                        {project.title}
+                      </Link>
+                    );
+                  })
+                ) : (
+                  <p key={index} className='text-gray-300'>
+                    No other projects found
+                  </p>
+                )}
               </nav>
             </div>
           </div>

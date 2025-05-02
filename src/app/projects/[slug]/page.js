@@ -5,8 +5,8 @@ import SpotlightInput from '../sandboxes/spotlightInput/SpotlightInput';
 export default async function ProjectDetails(props) {
   const params = await props.params;
   const slug = params.slug;
-
   const project = projects.find((p) => p.route === slug);
+  const SandboxComponent = project.component;
 
   if (!project) {
     return (
@@ -37,9 +37,7 @@ export default async function ProjectDetails(props) {
         </p>
       </div>
 
-      <div className='sandbox mt-10 h-[760px] pt-0'>
-        <SpotlightInput />
-      </div>
+      {SandboxComponent ? <SandboxComponent /> : null}
     </div>
   );
 }

@@ -1,3 +1,6 @@
+import LuhmaAssistant from '../projects/sandboxes/luhmaAssistant/LuhmaAssistant';
+import SpotlightInput from '../projects/sandboxes/spotlightInput/SpotlightInput';
+
 export const projects = [
   {
     title: 'AI spotlight concept',
@@ -15,5 +18,23 @@ export const projects = [
       },
     },
     route: 'ai-spotlight-input',
+    component: SpotlightInput,
+  },
+  {
+    title: 'Luhma AI path animation',
+    shortdDescription:
+      'A small animated AI assistant notification. interactive AI chat input that scales size based on content. Original interaction was designed by {designer}',
+    description: `Here's a small animated AI assistant notificiation AI. I found the path animation pretty interesting. Original interaction was designed by {designer}`,
+    date: 'May 3rd, 2025',
+    videoSrc:
+      'https://layers-uploads-prod.s3.eu-west-2.amazonaws.com/bba4b29a-e7aa-4576-8ce9-146a6638787a-L2.mp4',
+    links: {
+      designer: {
+        href: 'https://layers.to/layers/cm94kqbff0011jr0cmtbgrom9',
+        text: 'Marco Koenig',
+      },
+    },
+    route: 'luhma-ai-assistant',
+    component: LuhmaAssistant,
   },
 ];
