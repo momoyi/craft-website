@@ -135,6 +135,11 @@ a:not(.btn) {
   animation: gradient-shift 9s linear infinite;
 }
 
+.sheen {
+  filter: blur(10px);
+  animation: sheen 1.5s ease infinite;
+}
+
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -186,5 +191,15 @@ a:not(.btn) {
 
   100% {
     transform: translateX(75%);
+  }
+}
+
+@keyframes sheen {
+  0% {
+    transform: skew(-35deg, -10deg) translateX(-300%);
+  }
+
+  100% {
+    transform: skew(-35deg, -10deg) translateX(300%);
   }
 }

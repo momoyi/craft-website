@@ -1,11 +1,16 @@
 import localFont from 'next/font/local';
 import './globals.css';
 import RootLayout from './layouts/root/RootLayout';
-import { Inter } from 'next/font/google';
+import { Inter, Nunito_Sans } from 'next/font/google';
 
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
+});
+
+const nunito = Nunito_Sans({
+  subsets: ['latin'],
+  variable: '--font-nunito',
 });
 
 const diatype = localFont({
@@ -54,6 +59,32 @@ const diatype = localFont({
   variable: '--font-diatype',
 });
 
+const sfPro = localFont({
+  src: [
+    {
+      path: './fonts/sf pro/SF-Pro-Text-Regular.otf',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: './fonts/sf pro/SF-Pro-Display-RegularItalic.otf',
+      weight: '400',
+      style: 'italic',
+    },
+    {
+      path: './fonts/sf pro/SF-Pro-Text-Medium.otf',
+      weight: '500',
+      style: 'normal',
+    },
+    {
+      path: './fonts/sf pro/SF-Pro-Display-MediumItalic.otf',
+      weight: '500',
+      style: 'italic',
+    },
+  ],
+  variable: '--font-sf-pro',
+});
+
 export const metadata = {
   title: 'Moyi Abioye | Craft',
   description:
@@ -62,7 +93,10 @@ export const metadata = {
 
 export default function Layout({ children }) {
   return (
-    <html lang='en' className={`${diatype.variable} ${inter.variable}`}>
+    <html
+      lang='en'
+      className={`${diatype.variable} ${inter.variable}  ${sfPro.variable} ${nunito.variable}`}
+    >
       <body className='antialiased'>
         <RootLayout>{children}</RootLayout>
       </body>

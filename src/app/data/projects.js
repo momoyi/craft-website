@@ -1,13 +1,14 @@
 import LuhmaAssistant from '../projects/sandboxes/luhmaAssistant/LuhmaAssistant';
 import SpotlightInput from '../projects/sandboxes/spotlightInput/SpotlightInput';
+import VoiceNote from '../projects/sandboxes/voiceNote/VoiceNote';
 
 export const projects = [
   {
     title: 'AI spotlight concept',
     shortdDescription:
-      'Animated interactive AI chat input that scales size based on content. Original interaction was designed by {designer}',
+      'Animated interactive AI chat input that scales size based on content. Original interaction was designed by {designer}. Built with Framer Motion & Tailwind.',
     description: `Here's an animated interactive AI chat input that scales size based on content. Type anything into the input
-       and submit to see interaction. Original interaction was designed by the amazing {designer}`,
+       and submit to see interaction. Original interaction was designed by the amazing {designer}. Built with Framer Motion & Tailwind.`,
     date: 'May 1st, 2025',
     videoSrc:
       'https://srthf9hgxhyzoa7c.public.blob.vercel-storage.com/ssstwitter.com_1745777758504-oNwPyqnQwA9XBiec7yhIh1lKdA91T6.mp4',
@@ -23,8 +24,8 @@ export const projects = [
   {
     title: 'Luhma AI path animation',
     shortdDescription:
-      'A small animated AI assistant notification. interactive AI chat input that scales size based on content. Original interaction was designed by {designer}',
-    description: `Here's a small animated AI assistant notificiation AI. I found the path animation pretty interesting. Original interaction was designed by {designer}`,
+      'A small animated AI assistant notification. interactive AI chat input that scales size based on content. Original interaction was designed by {designer}. Built with Framer Motion & Tailwind.',
+    description: `Here's a small animated AI assistant notificiation AI. I found the path animation pretty interesting. Original interaction was designed by {designer}. Built with Framer Motion & Tailwind.`,
     date: 'May 3rd, 2025',
     videoSrc:
       'https://layers-uploads-prod.s3.eu-west-2.amazonaws.com/bba4b29a-e7aa-4576-8ce9-146a6638787a-L2.mp4',
@@ -36,5 +37,21 @@ export const projects = [
     },
     route: 'luhma-ai-assistant',
     component: LuhmaAssistant,
+  },
+  {
+    title: 'Voice note interaction',
+    shortdDescription:
+      'Animsted voice note recording interaction. Original interaction was designed by {designer}. Built with Framer Motion & Tailwind.',
+    description: `Here's a small animated AI assistant notificiation AI. I found the path animation pretty interesting. Original interaction was designed by {designer}. Built with Framer Motion & Tailwind.`,
+    date: 'May 4th, 2025',
+    videoSrc: 'https://khagwal.com/interactions/static/video/voice_note.mp4',
+    links: {
+      designer: {
+        href: 'https://x.com/nitishkmrk/status/1902610054089457684',
+        text: 'Nitish Khagwal',
+      },
+    },
+    route: 'voice-note',
+    component: VoiceNote,
   },
 ];
