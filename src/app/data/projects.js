@@ -6,9 +6,9 @@ export const projects = [
   {
     title: 'AI spotlight concept',
     shortdDescription:
-      'Animated interactive AI chat input that scales size based on content. Original interaction was designed by {designer}. Built with Framer Motion & Tailwind.',
+      'Animated interactive AI chat input that scales size based on content. Original interaction & video was created by {designer}. ',
     description: `Here's an animated interactive AI chat input that scales size based on content. Type anything into the input
-       and submit to see interaction. Original interaction was designed by the amazing {designer}. Built with Framer Motion & Tailwind.`,
+       and submit to see interaction. Original interaction & video was created by the amazing {designer}.`,
     date: 'May 1st, 2025',
     videoSrc:
       'https://srthf9hgxhyzoa7c.public.blob.vercel-storage.com/ssstwitter.com_1745777758504-oNwPyqnQwA9XBiec7yhIh1lKdA91T6.mp4',
@@ -24,11 +24,11 @@ export const projects = [
   {
     title: 'Luhma AI path animation',
     shortdDescription:
-      'A small animated AI assistant notification. interactive AI chat input that scales size based on content. Original interaction was designed by {designer}. Built with Framer Motion & Tailwind.',
-    description: `Here's a small animated AI assistant notificiation AI. I found the path animation pretty interesting. Original interaction was designed by {designer}. Built with Framer Motion & Tailwind.`,
+      'A small animated AI assistant notification. interactive AI chat input that scales size based on content. Original interaction & video was created by {designer}.',
+    description: `Here's a small animated AI assistant notificiation AI. I found the path animation pretty interesting. Original interaction & video was created by {designer}.`,
     date: 'May 3rd, 2025',
     videoSrc:
-      'https://layers-uploads-prod.s3.eu-west-2.amazonaws.com/bba4b29a-e7aa-4576-8ce9-146a6638787a-L2.mp4',
+      'https://srthf9hgxhyzoa7c.public.blob.vercel-storage.com/signature-ai-anim-EEEdB6zpGZeOf9YtorcwUQOSWfnSSB.mp4',
     links: {
       designer: {
         href: 'https://layers.to/layers/cm94kqbff0011jr0cmtbgrom9',
@@ -41,10 +41,11 @@ export const projects = [
   {
     title: 'Voice note interaction',
     shortdDescription:
-      'Animsted voice note recording interaction. Original interaction was designed by {designer}. Built with Framer Motion & Tailwind.',
-    description: `Here's a small animated AI assistant notificiation AI. I found the path animation pretty interesting. Original interaction was designed by {designer}. Built with Framer Motion & Tailwind.`,
+      'Animated voice note recording interaction. Original interaction & video was created by {designer}.',
+    description: `Here's an animated voice note recording interaction. Once you're ready just click the microphone. Original interaction & video was created by {designer}.`,
     date: 'May 4th, 2025',
-    videoSrc: 'https://khagwal.com/interactions/static/video/voice_note.mp4',
+    videoSrc:
+      'https://srthf9hgxhyzoa7c.public.blob.vercel-storage.com/voice_note-oTkY0yQSfCILxdTFr5dx16zKbtFoi6.mp4',
     links: {
       designer: {
         href: 'https://x.com/nitishkmrk/status/1902610054089457684',

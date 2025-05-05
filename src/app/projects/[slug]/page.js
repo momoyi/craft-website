@@ -35,6 +35,9 @@ export default async function ProjectDetails(props) {
         <p className=' pt-10 text-gray-400'>
           {renderDescription(project.description, project.links)}
         </p>
+        <p className='pt-4 text-gray-400'>
+          Built with Framer motion & tailwind.
+        </p>
       </div>
 
       {SandboxComponent ? <SandboxComponent /> : null}
