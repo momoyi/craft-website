@@ -12,6 +12,8 @@ export const projects = [
     date: 'May 1st, 2025',
     videoSrc:
       'https://srthf9hgxhyzoa7c.public.blob.vercel-storage.com/ssstwitter.com_1745777758504-oNwPyqnQwA9XBiec7yhIh1lKdA91T6.mp4',
+    placeholder:
+      'https://srthf9hgxhyzoa7c.public.blob.vercel-storage.com/spotlight%20preview%20%281%29-021Ia2wkzL7cPoSQNmKLM0gbHSDxds.png',
     links: {
       designer: {
         href: 'https://x.com/DamianSkotzke/status/1891887991389360220/video/1',
@@ -29,6 +31,8 @@ export const projects = [
     date: 'May 3rd, 2025',
     videoSrc:
       'https://srthf9hgxhyzoa7c.public.blob.vercel-storage.com/signature-ai-anim-EEEdB6zpGZeOf9YtorcwUQOSWfnSSB.mp4',
+    placeholder:
+      'https://srthf9hgxhyzoa7c.public.blob.vercel-storage.com/luhma%20preview%20%281%29-BKw24ZwHy3QoFP1vXrhWAQr3m3mCzD.png',
     links: {
       designer: {
         href: 'https://layers.to/layers/cm94kqbff0011jr0cmtbgrom9',
@@ -46,6 +50,8 @@ export const projects = [
     date: 'May 4th, 2025',
     videoSrc:
       'https://srthf9hgxhyzoa7c.public.blob.vercel-storage.com/voice_note-oTkY0yQSfCILxdTFr5dx16zKbtFoi6.mp4',
+    placeholder:
+      'https://srthf9hgxhyzoa7c.public.blob.vercel-storage.com/voice%20preview%20%281%29-6yqXWE3C4HRExxwImUZRe4yynIaYvH.png',
     links: {
       designer: {
         href: 'https://x.com/nitishkmrk/status/1902610054089457684',
