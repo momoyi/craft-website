@@ -47,7 +47,7 @@ export const projects = [
     shortdDescription:
       'Animated voice note recording interaction. Original interaction & video was created by {designer}.',
     description: `Here's an animated voice note recording interaction. Once you're ready just click the microphone. Original interaction & video was created by {designer}.`,
-    date: 'May 4th, 2025',
+    date: 'May 5th, 2025',
     videoSrc:
       'https://srthf9hgxhyzoa7c.public.blob.vercel-storage.com/voice_note-oTkY0yQSfCILxdTFr5dx16zKbtFoi6.mp4',
     placeholder:
