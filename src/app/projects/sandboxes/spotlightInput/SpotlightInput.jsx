@@ -13,7 +13,7 @@ export default function SpotlightInput() {
   const [inputVal, setInputVal] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [currentAction, setCurrentAction] = useState('looking');
-  const [actionContent, setactionContent] = useState('');
+  const [actionContent, setActionContent] = useState('');
   const [activeFile, setActiveFile] = useState(false);
   const [activeView, setActiveView] = useState('input');
   const [isPressed, setIsPressed] = useState(false);
@@ -57,13 +57,13 @@ export default function SpotlightInput() {
   useEffect(() => {
     switch (currentAction) {
       case 'looking':
-        setactionContent('Looking for files');
+        setActionContent('Looking for files');
         break;
       case 'scanning':
-        setactionContent('Scanning images');
+        setActionContent('Scanning images');
         break;
       case 'recommending':
-        setactionContent('Recommending actions');
+        setActionContent('Recommending actions');
         break;
       default:
         break;
@@ -164,12 +164,12 @@ export default function SpotlightInput() {
                     )}
                   </div>
                   <div className='relative flex h-[1.5em] items-center justify-end overflow-y-clip whitespace-nowrap text-right text-sm text-[rgba(255,255,255,0.6)]'>
-                    <AnimatePresence mode='wait'>
+                    <AnimatePresence mode='popLayout'>
                       <motion.span
                         key={currentAction}
-                        className='absolute right-0'
+                        className='absolute right-0 h-full'
                         initial={{ y: '100%', opacity: 0 }}
-                        animate={{ y: '0%', opacity: 1 }}
+                        animate={{ y: 0, opacity: 1 }}
                         exit={{ y: '-100%', opacity: 0 }}
                         transition={{
                           delay: 0.5,

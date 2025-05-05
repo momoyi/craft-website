@@ -38,8 +38,7 @@ function SpotlightActions({
             <button
               key={action.text}
               onClick={() => {
-                //reset();
-                setActiveView('dialog');
+                reset();
               }}
               className='before:-inset-x-(--external-padding-horizontal) before:-inset-y-(--external-padding-vertical) ease active:scale-98
                  relative flex items-center justify-between transition-transform duration-200 before:absolute before:z-0
@@ -65,7 +64,7 @@ function SpotlightActions({
           <motion.button
             layoutId={`active-file-${activeFile.name}`}
             onClick={() => {
-              reset();
+              setActiveView('dialog');
             }}
             className='before:-inset-x-(--external-padding-horizontal) before:-inset-y-(--external-padding-vertical) ease active:scale-98 relative
        flex w-full items-center justify-between transition-transform duration-200 before:absolute before:z-0
