@@ -29,6 +29,7 @@ function HomeView() {
                   <p className='pt-1 text-sm italic text-gray-400'>
                     {project.date}
                   </p>
+
                   <Link href={'/projects/' + project.route} className='btn'>
                     Interactive implementation
                   </Link>
