@@ -27,8 +27,8 @@ export default async function ProjectDetails(props) {
 
   return (
     <div className=''>
-      <div className='px-4'>
-        <div className='flex w-full items-center justify-between'>
+      <div className='md:px-4'>
+        <div className='flex w-full flex-col items-start gap-2 md:flex-row md:items-center md:justify-between md:gap-0 '>
           <h1 className='text-base'>{project.title}</h1>
           <p className='text-gray-400'>{project.date}</p>
         </div>

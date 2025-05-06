@@ -105,7 +105,7 @@ function VoiceNote() {
   }, [activeView]);
 
   return (
-    <div className='sandbox font-inter h-80'>
+    <div className='sandbox font-inter h-50 md:h-80'>
       {/* To preload lottie file */}
       <div className='hidden'>
         <DotLottieReact

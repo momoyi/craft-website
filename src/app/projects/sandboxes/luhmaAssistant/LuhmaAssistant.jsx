@@ -204,7 +204,7 @@ function LuhmaAssistant() {
 
           <motion.div
             animate={{ height: height === 0 ? 'auto' : height }}
-            className='relative w-[260px] origin-bottom'
+            className='relative w-[200px] origin-bottom md:w-[260px]'
           >
             <AnimatePresence mode='popLayout'>
               <motion.div key={view} className='absolute inset-0 w-full'>
@@ -350,7 +350,7 @@ function ArticleView({ setHeight }) {
               duration: 0.25,
               ease: [0.165, 0.84, 0.44, 1],
             }}
-            className='max-w-50 text-white'
+            className='md:max-w-50 max-w-full text-sm text-white md:text-base'
           >
             AI Advancing Quantum
           </motion.span>

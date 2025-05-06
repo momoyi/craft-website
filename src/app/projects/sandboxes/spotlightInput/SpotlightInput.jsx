@@ -98,7 +98,7 @@ export default function SpotlightInput() {
   }, [submitted]);
 
   return (
-    <div className='sandbox h-[760px] pt-0'>
+    <div className='sandbox h-[720px] pt-0 md:h-[760px]'>
       <div className='block'>
         <div
           className='font-inter relative flex flex-col gap-1 rounded-xl p-2 pb-4'
@@ -275,7 +275,7 @@ export default function SpotlightInput() {
                       </div>
                     </div>
                     <motion.input
-                      className='flexitems-center w-[360px] justify-between rounded-[10px] border border-transparent bg-white px-4 py-3 text-sm font-medium leading-6 text-gray-800 opacity-100 outline-none placeholder:text-gray-400 focus:border focus:border-gray-300'
+                      className='flexitems-center w-[280px] justify-between rounded-[10px] border border-transparent bg-white px-4 py-3 text-sm font-medium leading-6 text-gray-800 opacity-100 outline-none placeholder:text-gray-400 focus:border focus:border-gray-300 md:w-[360px]'
                       placeholder='Search or ask'
                       value={inputVal}
                       onChange={(e) => setInputVal(e.target.value)}

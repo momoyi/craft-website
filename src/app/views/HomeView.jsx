@@ -18,11 +18,15 @@ function HomeView() {
   return (
     <>
       <RootHeader></RootHeader>
-      <main className='container min-h-[calc(100svh-56px-70px)] py-20 tracking-tight'>
-        <section className='gap-35 flex w-full flex-col'>
+      <main className='py-15 container min-h-[calc(100svh-56px-70px)] tracking-tight md:py-20'>
+        <section className='md:gap-35 flex w-full flex-col gap-20'>
           {projects.map((project, index) => (
-            <div ref={ref} key={index} className='grid grid-cols-2 gap-16'>
-              <div className='flex flex-col items-start justify-between py-1 pt-5 no-underline'>
+            <div
+              ref={ref}
+              key={index}
+              className='flex flex-col-reverse gap-3 md:grid md:grid-cols-2 md:gap-16'
+            >
+              <div className='flex flex-col items-start gap-8 py-1 pt-5 no-underline sm:justify-start md:justify-between md:gap-2'>
                 <div>
                   <h3 className='font-medium'>{project.title}</h3>
                   <p className='pt-1 text-base text-gray-300'>
@@ -33,7 +37,7 @@ function HomeView() {
                   </p>
                 </div>
 
-                <div className='flex items-center gap-4'>
+                <div className='flex flex-col items-start gap-4 sm:flex-row sm:items-center'>
                   <p className='pt-1 text-sm italic text-gray-400'>
                     {project.date}
                   </p>
@@ -44,7 +48,7 @@ function HomeView() {
                 </div>
               </div>
 
-              <div className=' relative aspect-[16/12] overflow-hidden'>
+              <div className=' relative aspect-[16/9] overflow-hidden md:aspect-[16/12]'>
                 <Image
                   src={project.placeholder}
                   fill
@@ -58,7 +62,7 @@ function HomeView() {
                   <video
                     width={'100%'}
                     height='auto'
-                    className='aspect-[16/12] h-auto w-full rounded-md object-cover'
+                    className='aspect-[16/9] h-auto w-full rounded-md object-cover md:aspect-[16/12]'
                     muted
                     autoPlay
                     loop

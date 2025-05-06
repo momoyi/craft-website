@@ -36,7 +36,7 @@ body {
 }
 
 @utility container {
-  padding-inline: 1rem;
+  padding-inline: 1.5rem;
   margin-inline: auto;
   max-width: 100%;
 
