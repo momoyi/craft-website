@@ -48,39 +48,53 @@ function HomeView() {
                 </div>
               </div>
 
-              <div className=' relative aspect-[16/9] overflow-hidden md:aspect-[16/12]'>
-                <Image
-                  src={project.placeholder}
-                  fill
-                  alt={'Project placeholder blurred image'}
-                  priority
-                  className={`z-2 absolute inset-0 rounded-md object-cover transition-opacity duration-500 ${isLoaded ? 'opacity-0' : 'opacity-100'}`}
-                />
-
-                {/* Lazy-load video only when in view */}
-                {inView && (
-                  <video
-                    width={'100%'}
-                    height='auto'
-                    className='aspect-[16/9] h-auto w-full rounded-md object-cover md:aspect-[16/12]'
-                    muted
-                    autoPlay
-                    loop
-                    playsInline
-                    preload='none'
-                    onLoadedData={() => setIsLoaded(true)}
-                  >
-                    <source src={project.videoSrc} type='video/mp4' />
-                    Your browser does not support the video tag.
-                  </video>
-                )}
-              </div>
+              <ProjectMedia
+                placeholder={project.placeholder}
+                videoSrc={project.videoSrc}
+              />
             </div>
           ))}
         </section>
       </main>{' '}
       <RootFooter></RootFooter>
     </>
+  );
+}
+
+function ProjectMedia({ placeholder, videoSrc }) {
+  const [isLoaded, setIsLoaded] = useState(false);
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  return (
+    <div
+      ref={ref}
+      className='relative aspect-[16/9] overflow-hidden md:aspect-[16/12]'
+    >
+      <Image
+        src={placeholder}
+        fill
+        alt='Project placeholder blurred image'
+        priority
+        className={`z-2 absolute inset-0 rounded-md object-cover transition-opacity duration-500 ${isLoaded ? 'opacity-0' : 'opacity-100'}`}
+      />
+
+      {inView && (
+        <video
+          className='aspect-[16/9] h-auto w-full rounded-md object-cover md:aspect-[16/12]'
+          muted
+          autoPlay
+          loop
+          playsInline
+          preload='none'
+          onLoadedData={() => setIsLoaded(true)}
+        >
+          <source src={videoSrc} type='video/mp4' />
+        </video>
+      )}
+    </div>
   );
 }
 
