@@ -20,7 +20,7 @@ function HomeView() {
       <RootHeader></RootHeader>
       <main className='py-15 container min-h-[calc(100svh-56px-70px)] tracking-tight md:py-20'>
         <section className='md:gap-35 flex w-full flex-col gap-20'>
-          {projects.map((project, index) => (
+          {[...projects].reverse().map((project, index) => (
             <div
               ref={ref}
               key={index}

@@ -1,3 +1,4 @@
+import FiltersComponent from '../projects/sandboxes/filters/Filters';
 import LuhmaAssistant from '../projects/sandboxes/luhmaAssistant/LuhmaAssistant';
 import SpotlightInput from '../projects/sandboxes/spotlightInput/SpotlightInput';
 import VoiceNote from '../projects/sandboxes/voiceNote/VoiceNote';
@@ -60,5 +61,24 @@ export const projects = [
     },
     route: 'voice-note',
     component: VoiceNote,
+  },
+  {
+    title: 'Filtering interaction',
+    shortdDescription:
+      'Animated filtering and sorting interaction. Inspired by {designer}.',
+    description: `An animated filtering & sorting interaction. It's inspired by {designer}. The original interaction was more of a happy path where each filter affected the elements right at the edge of the list. In a more realistic situation, this won't be the case. So I adjusted my version to also animate the sorting animation since the filters can target any of the people in any position (not just the edges).`,
+    date: 'May 8th, 2025',
+    videoSrc:
+      'https://srthf9hgxhyzoa7c.public.blob.vercel-storage.com/voice_note-oTkY0yQSfCILxdTFr5dx16zKbtFoi6.mp4',
+    placeholder:
+      'https://srthf9hgxhyzoa7c.public.blob.vercel-storage.com/voice%20preview%20%281%29-6yqXWE3C4HRExxwImUZRe4yynIaYvH.png',
+    links: {
+      designer: {
+        href: 'https://x.com/necatikcl/status/1919342951869694374',
+        text: 'Necati & Oğuz',
+      },
+    },
+    route: 'filtering-interaction',
+    component: FiltersComponent,
   },
 ];
