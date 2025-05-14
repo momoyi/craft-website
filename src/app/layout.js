@@ -2,6 +2,7 @@ import localFont from 'next/font/local';
 import './globals.css';
 import RootLayout from './layouts/root/RootLayout';
 import { Inter, Nunito_Sans } from 'next/font/google';
+import { Analytics } from '@vercel/analytics/next';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -99,6 +100,7 @@ export default function Layout({ children }) {
     >
       <body className='antialiased'>
         <RootLayout>{children}</RootLayout>
+        <Analytics />
       </body>
     </html>
   );

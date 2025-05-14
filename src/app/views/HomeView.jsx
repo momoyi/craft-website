@@ -29,11 +29,14 @@ function HomeView() {
               <div className='flex flex-col items-start gap-8 py-1 pt-5 no-underline sm:justify-start md:justify-between md:gap-2'>
                 <div>
                   <h3 className='font-medium'>{project.title}</h3>
-                  <p className='pt-1 text-base text-gray-300'>
+                  <p className='pt-3 text-base text-gray-300'>
                     {renderDescription(
                       project.shortdDescription,
                       project.links
                     )}
+                  </p>
+                  <p className='pt-1 text-gray-300'>
+                    Built with Framer motion & tailwind.
                   </p>
                 </div>
 
