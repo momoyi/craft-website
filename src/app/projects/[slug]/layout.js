@@ -19,6 +19,7 @@ export default async function ProjectLayout(props) {
           <div className='top-(--top-space) sticky flex flex-col gap-8'>
             <nav>
               <Link
+                prefetch={true}
                 href='/'
                 className='flex text-gray-400 no-underline hover:text-white'
               >
@@ -34,6 +35,7 @@ export default async function ProjectLayout(props) {
                   tempProjects.map((project, index) => {
                     return (
                       <Link
+                        prefetch={true}
                         href={'/projects/' + project.route}
                         key={index}
                         className='text-gray-300 no-underline hover:text-white'

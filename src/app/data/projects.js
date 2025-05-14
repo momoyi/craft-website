@@ -67,11 +67,11 @@ export const projects = [
     shortdDescription:
       'Animated filtering and sorting interaction. Inspired by {designer}.',
     description: `An animated filtering & sorting interaction. It's inspired by {designer}. The original interaction was more of a happy path where each filter affected the elements right at the edge of the list. In a more realistic situation, this won't be the case. So I adjusted my version to also animate the sorting animation since the filters can target any of the people in any position (not just the edges).`,
-    date: 'May 8th, 2025',
+    date: 'May 14th, 2025',
     videoSrc:
-      'https://srthf9hgxhyzoa7c.public.blob.vercel-storage.com/voice_note-oTkY0yQSfCILxdTFr5dx16zKbtFoi6.mp4',
+      'https://srthf9hgxhyzoa7c.public.blob.vercel-storage.com/Videos/Filtering%20horizontal%20recording%20comp-QUTZ1YIPHePcYZcI2FnCByc3wyWeTB.mp4',
     placeholder:
-      'https://srthf9hgxhyzoa7c.public.blob.vercel-storage.com/voice%20preview%20%281%29-6yqXWE3C4HRExxwImUZRe4yynIaYvH.png',
+      'https://srthf9hgxhyzoa7c.public.blob.vercel-storage.com/Images/filtering%20preview-4yxFJl4zdHtMdJ1N0ziCYCaUvDX8R2.png',
     links: {
       designer: {
         href: 'https://x.com/necatikcl/status/1919342951869694374',

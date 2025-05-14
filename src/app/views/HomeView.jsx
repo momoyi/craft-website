@@ -42,7 +42,11 @@ function HomeView() {
                     {project.date}
                   </p>
 
-                  <Link href={'/projects/' + project.route} className='btn'>
+                  <Link
+                    prefetch={true}
+                    href={'/projects/' + project.route}
+                    className='btn'
+                  >
                     Interactive implementation
                   </Link>
                 </div>
