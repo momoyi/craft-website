@@ -3,7 +3,7 @@ import Link from 'next/link';
 function RootHeader() {
   return (
     <header className='container flex flex-col gap-6 py-5 tracking-tight md:flex-row md:justify-between md:gap-0'>
-      <Link className='no-underline' href='/'>
+      <Link prefetch={true} className='no-underline' href='/'>
         <div className='flex items-center justify-start gap-3'>
           <div className='text-xl'>Craft</div>
           <div

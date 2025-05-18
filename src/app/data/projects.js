@@ -1,5 +1,6 @@
 import FiltersComponent from '../projects/sandboxes/filters/Filters';
 import LuhmaAssistant from '../projects/sandboxes/luhmaAssistant/LuhmaAssistant';
+import PredictiveText from '../projects/sandboxes/predictiveText/PredictiveText';
 import SpotlightInput from '../projects/sandboxes/spotlightInput/SpotlightInput';
 import VoiceNote from '../projects/sandboxes/voiceNote/VoiceNote';
 
@@ -80,5 +81,24 @@ export const projects = [
     },
     route: 'filtering-interaction',
     component: FiltersComponent,
+  },
+  {
+    title: 'Predictive Text interaction',
+    shortdDescription:
+      'Interactive predictive text suggestions component. Inspired by {designer}.',
+    description: `An animated text suggestions component. Suggestions are powered by OpanAI's API. It's inspired by {designer}.`,
+    date: 'May 18th, 2025',
+    videoSrc:
+      'https://srthf9hgxhyzoa7c.public.blob.vercel-storage.com/Videos/Filtering%20horizontal%20recording%20comp-QUTZ1YIPHePcYZcI2FnCByc3wyWeTB.mp4',
+    placeholder:
+      'https://srthf9hgxhyzoa7c.public.blob.vercel-storage.com/Images/filtering%20preview-4yxFJl4zdHtMdJ1N0ziCYCaUvDX8R2.png',
+    links: {
+      designer: {
+        href: 'https://x.com/nitishkmrk/status/1919279951033102707',
+        text: 'Nitish Khagwal',
+      },
+    },
+    route: 'predictive-text',
+    component: PredictiveText,
   },
 ];
