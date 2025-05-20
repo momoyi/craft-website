@@ -7,6 +7,7 @@ import { useState, useEffect } from 'react';
 function PredictiveText() {
   const [inputValue, setInputValue] = useState('');
   const [empty, setEmpty] = useState(true);
+  const [words, setWords] = useState(['why', 'what', 'salad']);
 
   function handleInputChange(e) {
     let val = e.target.value;
@@ -15,33 +16,63 @@ function PredictiveText() {
   }
 
   return (
-    <div className='sandbox font-inter h-70'>
-      <div className='w-100 relative flex items-center'>
-        <div className='absolute right-3 flex h-fit items-center'>
-          {empty ? (
-            <div className='flex gap-3 pr-2 text-[hsl(0,0%,80%)]'>
-              <button className='h-5 w-5'>
-                <MicrophoneIcon />
-              </button>
-              <button className='h-5 w-5'>
-                <ImageIcon />
-              </button>
+    <div
+      className='sandbox font-inter h-100'
+      style={{ '--bg-color': 'hsl(0,0%,9%)' }}
+    >
+      <div className='relative'>
+        {!empty && (
+          <div className='absolute -top-12'>
+            <div
+              className='-top-13 bg-(--background) absolute left-5 flex items-center justify-center rounded-xl px-3 py-2 text-center text-sm font-medium text-gray-500'
+              style={{ '--background': 'hsl(0,0%,95%)' }}
+            >
+              <span className='z-2 relative'>
+                Toggle suggestions with&nbsp;
+                <span className='text-gray-800'>Tab</span>
+              </span>
+              <div className='bg-(--background) -bottom-1.25 rounded-xs absolute left-6 h-4 w-4 rotate-45'></div>
             </div>
-          ) : (
-            <button className='h-8 w-8 text-white'>
-              <CircleArrowUpIcon />
-            </button>
-          )}
-        </div>
+            <div
+              className='bg-(--border-color) flex w-fit gap-0.5 overflow-hidden rounded-[40px] p-0.5'
+              style={{ '--border-color': 'hsl(0,0%,18%)' }}
+            >
+              {words.map((word) => (
+                <div className='nth-1:rounded-l-[40px] nth-1:rounded-r-lg nth-last-1:rounded-r-[40px] nth-last-1:rounded-l-lg flex h-8 w-24 items-center justify-center rounded-sm bg-[#1d1d1d] px-2 py-2 text-center'>
+                  {word}
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
 
-        <input
-          className='w-full rounded-xl bg-[hsl(0,0%,9%)] p-4 font-semibold text-[hsl(100,0%,95%)] outline-none placeholder:text-[hsl(100,0%,40%)]'
-          placeholder='Write a message'
-          value={inputValue}
-          onChange={(e) => {
-            handleInputChange(e);
-          }}
-        />
+        <div className='w-100 relative flex items-center'>
+          <div className='absolute right-3 flex h-fit items-center'>
+            {empty ? (
+              <div className='flex gap-3 pr-2 text-[hsl(0,0%,80%)]'>
+                <button className='h-5 w-5'>
+                  <MicrophoneIcon />
+                </button>
+                <button className='h-5 w-5'>
+                  <ImageIcon />
+                </button>
+              </div>
+            ) : (
+              <button className='h-8 w-8 text-white'>
+                <CircleArrowUpIcon />
+              </button>
+            )}
+          </div>
+
+          <input
+            className='bg-(--bg-color) w-full rounded-xl p-4 font-semibold text-[hsl(100,0%,95%)] outline-none placeholder:text-[hsl(100,0%,40%)]'
+            placeholder='Write a message'
+            value={inputValue}
+            onChange={(e) => {
+              handleInputChange(e);
+            }}
+          />
+        </div>
       </div>
     </div>
   );
