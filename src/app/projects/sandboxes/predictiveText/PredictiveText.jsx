@@ -2,17 +2,44 @@
 import CircleArrowUpIcon from '@/app/icons/CirlceArrowUp';
 import ImageIcon from '@/app/icons/Image';
 import MicrophoneIcon from '@/app/icons/Microphone';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import axios from 'axios';
+import debounce from 'lodash.debounce';
 
 function PredictiveText() {
   const [inputValue, setInputValue] = useState('');
   const [empty, setEmpty] = useState(true);
-  const [words, setWords] = useState(['why', 'what', 'salad']);
+  const [suggestions, setSuggestions] = useState([]);
+  //const [words, setWords] = useState(['why', 'what', 'salad']);
+
+  const fetchSuggestions = useCallback(
+    debounce(async (fullInput) => {
+      const words = fullInput.trim().split(' ');
+      const lastWord = words[words.length - 1];
+
+      if (!lastWord) return setSuggestions([]);
+
+      try {
+        const res = await axios.get(
+          `https://api.datamuse.com/sug?s=${lastWord}`
+        );
+        const topSuggestions = res.data
+          .filter((item) => !item.word.includes(' ')) // ✅ ensure it's a single word
+          .slice(0, 3)
+          .map((item) => item.word);
+        setSuggestions(topSuggestions);
+      } catch (err) {
+        console.error('Error fetching suggestions', err);
+      }
+    }, 300),
+    []
+  );
 
   function handleInputChange(e) {
     let val = e.target.value;
     setInputValue(val);
     setEmpty(val.trim() === '');
+    fetchSuggestions(val);
   }
 
   return (
@@ -27,7 +54,7 @@ function PredictiveText() {
               className='-top-13 bg-(--background) absolute left-5 flex items-center justify-center rounded-xl px-3 py-2 text-center text-sm font-medium text-gray-500'
               style={{ '--background': 'hsl(0,0%,95%)' }}
             >
-              <span className='z-2 relative'>
+              <span className='z-2 relative w-fit whitespace-nowrap'>
                 Toggle suggestions with&nbsp;
                 <span className='text-gray-800'>Tab</span>
               </span>
@@ -37,9 +64,12 @@ function PredictiveText() {
               className='bg-(--border-color) flex w-fit gap-0.5 overflow-hidden rounded-[40px] p-0.5'
               style={{ '--border-color': 'hsl(0,0%,18%)' }}
             >
-              {words.map((word) => (
-                <div className='nth-1:rounded-l-[40px] nth-1:rounded-r-lg nth-last-1:rounded-r-[40px] nth-last-1:rounded-l-lg flex h-8 w-24 items-center justify-center rounded-sm bg-[#1d1d1d] px-2 py-2 text-center'>
-                  {word}
+              {suggestions.map((suggestion, index) => (
+                <div
+                  key={index}
+                  className='nth-1:rounded-l-[40px] nth-1:rounded-r-lg nth-last-1:rounded-r-[40px] nth-last-1:rounded-l-lg flex h-8 w-24 items-center justify-center rounded-sm bg-[#1d1d1d] px-2 py-2 text-center'
+                >
+                  {suggestion}
                 </div>
               ))}
             </div>
