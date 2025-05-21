@@ -5,6 +5,11 @@
   --foreground: #fff;
 }
 
+::selection {
+  color: hsl(0 0% 90%);
+  background-color: #4d3903;
+}
+
 @theme {
   --color-gray-50: oklch(98.5% 0 247.839);
   --color-gray-100: oklch(96.7% 0 264.542);
