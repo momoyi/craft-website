@@ -214,6 +214,33 @@ a:not(.btn) {
 }
 
 @layer utilities {
+  .shimmer {
+    position: relative;
+    overflow: hidden;
+    background-color: var(--color-gray-800);
+  }
+
+  .shimmer::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%;
+    height: 100%;
+    width: 150%;
+    background: linear-gradient(
+      to right,
+      transparent,
+      rgba(255, 255, 255, 0.1),
+      transparent
+    );
+    animation: shimmer 1.5s infinite;
+  }
+  @keyframes shimmer {
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
   @keyframes orbit {
     0% {
       transform: translate(3.5px, 0px);
