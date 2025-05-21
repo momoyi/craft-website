@@ -21,7 +21,7 @@ export default async function ProjectLayout(props) {
               <Link
                 prefetch={true}
                 href='/'
-                className='flex text-gray-400 no-underline hover:text-white'
+                className='no-underline! flex text-gray-400 hover:text-white'
               >
                 <BackIcon color='currentColor' />
                 Back
@@ -38,7 +38,7 @@ export default async function ProjectLayout(props) {
                         prefetch={true}
                         href={'/projects/' + project.route}
                         key={index}
-                        className='text-gray-300 no-underline hover:text-white'
+                        className='no-underline! text-gray-300 hover:text-white'
                       >
                         {project.title}
                       </Link>

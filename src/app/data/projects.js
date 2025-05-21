@@ -86,12 +86,14 @@ export const projects = [
     title: 'Predictive Text interaction',
     shortdDescription:
       'Interactive predictive text suggestions component. Inspired by {designer}.',
-    description: `An animated text suggestions component. Suggestions are powered by OpanAI's API. It's inspired by {designer}.`,
-    date: 'May 18th, 2025',
+    description: `An animated text suggestions component. It's inspired by {designer}. 
+    Suggestions are powered by Datamuse's API which isn't the most efficient way. Using Datamuse, the suggestions aren't 
+    context-aware and not as fast either compared to using a model hosted locally. I chose to use it for the sake of simplicity.`,
+    date: 'May 22nd, 2025',
     videoSrc:
-      'https://srthf9hgxhyzoa7c.public.blob.vercel-storage.com/Videos/Filtering%20horizontal%20recording%20comp-QUTZ1YIPHePcYZcI2FnCByc3wyWeTB.mp4',
+      'https://srthf9hgxhyzoa7c.public.blob.vercel-storage.com/Videos/predictive_text-nCrJyu4D1ZC6C76L4xeNSqUSVxZ6OE.mp4',
     placeholder:
-      'https://srthf9hgxhyzoa7c.public.blob.vercel-storage.com/Images/filtering%20preview-4yxFJl4zdHtMdJ1N0ziCYCaUvDX8R2.png',
+      'https://srthf9hgxhyzoa7c.public.blob.vercel-storage.com/Images/predictive%20text%20preview-wTrfaKWJqzhcpQpnLecHRoYwKIcWdN.png',
     links: {
       designer: {
         href: 'https://x.com/nitishkmrk/status/1919279951033102707',
