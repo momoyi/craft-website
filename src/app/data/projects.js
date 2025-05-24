@@ -1,3 +1,4 @@
+import CommentReplyComponent from '../projects/sandboxes/commentReply/CommentReply';
 import FiltersComponent from '../projects/sandboxes/filters/Filters';
 import LuhmaAssistant from '../projects/sandboxes/luhmaAssistant/LuhmaAssistant';
 import PredictiveText from '../projects/sandboxes/predictiveText/PredictiveText';
@@ -102,5 +103,25 @@ export const projects = [
     },
     route: 'predictive-text',
     component: PredictiveText,
+  },
+  {
+    title: 'Comment box interaction',
+    shortdDescription:
+      'Interactive comment reply box component. Animated reply interaction. Inspired by {designer}.',
+    description: `An animated comment-reply interactive component. It's inspired by {designer}. It's clean, simplistic
+     and the animation is purposeful, emphasizes the context of what you're typing being uploaded in real-time.`,
+    date: 'May 27th, 2025',
+    videoSrc:
+      'https://layers-uploads-prod.s3.eu-west-2.amazonaws.com/aee4ca96-a135-4c94-aec3-f9a6c4590b57-Screen-Recording-2024-08-07-at-00-38-56.mov',
+    placeholder:
+      'https://srthf9hgxhyzoa7c.public.blob.vercel-storage.com/Images/predictive%20text%20preview-wTrfaKWJqzhcpQpnLecHRoYwKIcWdN.png',
+    links: {
+      designer: {
+        href: 'https://layers.to/layers/clzj09hig001ajk0ca4gt3qd0',
+        text: 'George Vanjek',
+      },
+    },
+    route: 'comment-reply',
+    component: CommentReplyComponent,
   },
 ];

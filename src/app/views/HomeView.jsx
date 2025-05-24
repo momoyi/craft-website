@@ -33,9 +33,7 @@ function HomeView() {
                     {renderDescription(
                       project.shortdDescription,
                       project.links
-                    )}
-                  </p>
-                  <p className='pt-1 text-gray-300'>
+                    )}{' '}
                     Built with Framer motion & tailwind.
                   </p>
                 </div>
