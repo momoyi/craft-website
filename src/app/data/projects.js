@@ -110,11 +110,11 @@ export const projects = [
       'Interactive comment reply box component. Animated reply interaction. Inspired by {designer}.',
     description: `An animated comment-reply interactive component. It's inspired by {designer}. It's clean, simplistic
      and the animation is purposeful, emphasizes the context of what you're typing being uploaded in real-time.`,
-    date: 'May 27th, 2025',
+    date: 'May 31st, 2025',
     videoSrc:
-      'https://layers-uploads-prod.s3.eu-west-2.amazonaws.com/aee4ca96-a135-4c94-aec3-f9a6c4590b57-Screen-Recording-2024-08-07-at-00-38-56.mov',
+      'https://srthf9hgxhyzoa7c.public.blob.vercel-storage.com/Videos/text%20box%20interaction-0Hag7XFalJjm9iAZfHh46nbYL1iZ7m.mp4',
     placeholder:
-      'https://srthf9hgxhyzoa7c.public.blob.vercel-storage.com/Images/predictive%20text%20preview-wTrfaKWJqzhcpQpnLecHRoYwKIcWdN.png',
+      'https://srthf9hgxhyzoa7c.public.blob.vercel-storage.com/Images/Comment%20box%20preview-BJbiJUmS6Qxguu9TVhjuXKY1hvDQ2d.jpg',
     links: {
       designer: {
         href: 'https://layers.to/layers/clzj09hig001ajk0ca4gt3qd0',
